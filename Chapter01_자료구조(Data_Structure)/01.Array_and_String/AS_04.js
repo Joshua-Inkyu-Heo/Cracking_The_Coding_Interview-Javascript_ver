@@ -7,8 +7,8 @@
 /*
   1.4 해답
 
-  1. 새로운 배열을 만들고 문자열 한글자씩 넣어 주다가
-     공백 발견시 공백 대신 %20을 넣어주면 되지만,
+  1. 새로운 배열을 만들고 문자열 한 글자씩 넣어 주다가
+     공백 발견 시 공백 대신 %20을 넣어주면 되지만,
      새로운 배열을 요구하므로 다른 방법으로 시도.
 
   2. splice를 이용해서 구현.
@@ -23,20 +23,20 @@ let replaceSpace = function( str )
 
   for( ; i < str.length; i++ )
   {
-    if( str[i] == " ")
+    if( str[ i ] == " " )
     {
       cnt++;
     }
   }
 
-  str = str.split('');
+  str = str.split( '' );
 
   for( i = 0; i < cnt; i++ )
   {
     str.splice( str.indexOf( " " ) , 1 , '%20' );
   }
 
-  str = str.join('');
+  str = str.join( '' );
   return str;
 };
 
