@@ -109,7 +109,6 @@ LinkedList.prototype.contains = function( target )
     if( current.value = target )
     {
       return true;
-      break;
     }
     current = current.next;
   }
