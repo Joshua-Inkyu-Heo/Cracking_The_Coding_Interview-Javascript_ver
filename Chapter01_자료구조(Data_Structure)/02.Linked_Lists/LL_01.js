@@ -129,3 +129,4 @@ console.log( list.head.value );
 console.log( list.head.next.value );
 console.log( list.head.next.next.value );
 console.log( list.head.next.next.next.value );
+
