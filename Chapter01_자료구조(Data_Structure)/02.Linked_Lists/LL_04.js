@@ -14,6 +14,9 @@
   분할작업이 끝난 것이므로, 두 개의 연결 리스트를 합치면 된다.
 */
 
+
+
+
 'use strict';
 
 let LinkedList = function()
@@ -25,24 +28,33 @@ let LinkedList = function()
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 // 실제 구현 부분.
-LinkedList.prototype.partitionLinkedList = function( x )
+LinkedList.prototype.partitionList = function( val )
 {
-  let previous = this.head;
-  let current = this.head.next;
+  let beforeVal = new LinkedList();
+  let afterVal = new LinkedList();
+  let p1 = this.head;
 
-  while( previous.next )
+  while( p1 )
   {
-    if( current.value < x )
+    if( p1.value < val )
     {
-      previous.next = current.next;
-      //make a copy so we can keep incrementing from the old spot
-      var newHead = this.makeNode( current.value );
-      previous = newHead;
+      beforeVal.addToTail( p1.value );
     }
-    previous = current;
-    current = current.next;
+    else if( p1.value >= val )
+    {
+      afterVal.addToTail( p1.value );
+    }
+    p1 = p1.next;
   }
-  return previous;
+
+  let p2 = beforeVal.head;
+  while( p2.next )
+  {
+    p2 = p2.next;
+  }
+  p2.next = afterVal.head;
+
+  return beforeVal;
 };
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
@@ -70,26 +82,7 @@ LinkedList.prototype.addToTail = function( value )
   this.tail = newTail;
 };
 
-LinkedList.prototype.contains = function( target )
-{
-  if( !this.head )
-  {
-    return false;
-  }
-  let current = this.head;
-  while( current )
-  {
-    if( current.value = target )
-    {
-      return true;
-      break;
-    }
-    current = current.next;
-  }
-  return false;
-};
-
-var list = new LinkedList();
+let list = new LinkedList();
 list.addToTail( 5 );
 list.addToTail( 2 );
 list.addToTail( 4 );
@@ -97,8 +90,7 @@ list.addToTail( 3 );
 list.addToTail( 1 );
 list.addToTail( 9 );
 list.addToTail( 7 );
+// console.log( list );
 
-list.partitionLinkedList(7);
-
-console.log(list.head);
+console.log( list.partitionList( 3 ) );
 
