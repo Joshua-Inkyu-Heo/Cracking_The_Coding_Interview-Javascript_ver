@@ -14,9 +14,6 @@
   분할작업이 끝난 것이므로, 두 개의 연결 리스트를 합치면 된다.
 */
 
-
-
-
 'use strict';
 
 let LinkedList = function()
@@ -28,7 +25,7 @@ let LinkedList = function()
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 // 실제 구현 부분.
-LinkedList.prototype.partitionList = function( val )
+LinkedList.prototype.partitionList = function( value )
 {
   let beforeVal = new LinkedList();
   let afterVal = new LinkedList();
@@ -36,11 +33,11 @@ LinkedList.prototype.partitionList = function( val )
 
   while( p1 )
   {
-    if( p1.value < val )
+    if( p1.value < value )
     {
       beforeVal.addToTail( p1.value );
     }
-    else if( p1.value >= val )
+    else if( p1.value >= value )
     {
       afterVal.addToTail( p1.value );
     }
