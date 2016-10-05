@@ -51,7 +51,7 @@ Stack.prototype.push = function( value )
 {
   let newNode = new MakeNode( value );
   if( !this.storage )
-  { //inserting into empty queue
+  {
     this.storage = newNode;
   }
   else
@@ -67,12 +67,10 @@ Stack.prototype.pop = function()
 {
   if( !this.storage )
   {
-    return null; //empty queue
+    return null;
   }
   let popped = this.storage.value;
   this.storage = this.storage.next;
-  //this will either be the next node of the top
-  // element or null (if the Stack only had 1 element)
   this.counter--;
 
   if( this.counter === -1 )
