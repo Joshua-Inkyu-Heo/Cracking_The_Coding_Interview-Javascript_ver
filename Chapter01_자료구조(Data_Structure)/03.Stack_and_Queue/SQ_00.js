@@ -35,8 +35,10 @@ Stack.prototype.size = function()
 };
 
 // let stack = new Stack();
+
 // stack.push( 'a' );
 // stack.push( 'b' );
+
 // console.log( stack.size() );
 // console.log( stack.pop() );
 // console.log( stack.size() );
@@ -68,7 +70,6 @@ Queue.prototype.dequeue = function()
   delete this.storage[ this.first ];
   this.first++;
   return dequeued;
-
 };
 
 Queue.prototype.size = function()
@@ -85,9 +86,11 @@ Queue.prototype.size = function()
 };
 
 let queue = new Queue();
+
 queue.enqueue( 'a' );
 queue.enqueue( 'b' );
 queue.enqueue( 'c' );
+
 console.log(queue);
 console.log(queue.size());
 console.log(queue.dequeue());
