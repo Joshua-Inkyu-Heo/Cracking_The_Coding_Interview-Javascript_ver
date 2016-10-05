@@ -10,6 +10,7 @@ let Tree = function( value )
 
 Tree.prototype.addChild = function( child )
 {
+  console.log(child);
   if( !child || !(child instanceof Tree) )
   {
     child = new Tree( child );
@@ -124,6 +125,7 @@ let leaf4 = branch2.addChild( 4 );
 let leaf5 = branch2.addChild( 5 );
 let leaf6 = branch3.addChild( 6 );
 let leaf7 = branch3.addChild( 7 );
+
 console.log( root1.DFSelect( function( value , depth )
 {
   return value % 2;
