@@ -10,7 +10,6 @@ let Tree = function( value )
 
 Tree.prototype.addChild = function( child )
 {
-  console.log(child);
   if( !child || !(child instanceof Tree) )
   {
     child = new Tree( child );
@@ -65,7 +64,7 @@ Tree.prototype.removeChild = function( child )
 Tree.prototype.DFSelect = function( filter )
 {
   let result = [];
-  let first =
+  let val =
       {
         node : this ,
         depth : 0
@@ -87,7 +86,7 @@ Tree.prototype.DFSelect = function( filter )
     }
   };
 
-  recur( first );
+  recur( val );
 
   return result;
 };
@@ -100,10 +99,8 @@ Tree.prototype.BFSelect = function( filter )
           node : this ,
           depth : 0
         } ];
-
   while( val.length > 0 )
   {
-    //console.log("here!!");
     let item = val.shift();
     // console.log( "item = " , item );
     if( filter( item.node.value , item.depth ) )
