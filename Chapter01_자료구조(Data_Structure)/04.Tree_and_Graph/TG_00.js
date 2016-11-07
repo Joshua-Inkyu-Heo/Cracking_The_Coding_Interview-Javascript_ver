@@ -151,6 +151,30 @@ let leaf7 = branch3.addChild( 7 );
 
 
 // ---------------------------------------------------------------
+// Basic Binary Tree
+// ---------------------------------------------------------------
+
+let BinaryTreeNode = function( value )
+{
+  this.value = value;
+  this.left  = null;
+  this.right = null;
+}
+
+BinaryTreeNode.prototype.insertLeft = function( value )
+{
+  this.left = new BinaryTreeNode( value );
+  return this.left;
+};
+
+BinaryTreeNode.prototype.insertRight = function( value )
+{
+  this.right = new BinaryTreeNode( value );
+  return this.right;
+};
+
+
+// ---------------------------------------------------------------
 // Basic Binary Search Tree with inorder, preorder, postorder
 // ---------------------------------------------------------------
 
