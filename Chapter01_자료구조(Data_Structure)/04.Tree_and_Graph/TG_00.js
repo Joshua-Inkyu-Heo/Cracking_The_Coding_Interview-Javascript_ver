@@ -367,7 +367,7 @@ BinartSearchTree.prototype.removeNode = function( node , data )
   }
 };
 
-let nums = new BinartSearchTree();
+let nums = new BinarySearchTree();
 
 nums.insert( 23 );
 nums.insert( 45 );
